@@ -2,6 +2,7 @@ import time
 
 import markus
 
+from allauth.socialaccount.models import SocialAccount
 
 metrics = markus.get_metrics('fx-private-relay')
 
@@ -14,8 +15,11 @@ class FxAToRequest:
         if not request.user.is_authenticated:
             return self.get_response(request)
 
+        # fxa_account = (
+        #     request.user.socialaccount_set.filter(provider='fxa').first()
+        # )
         fxa_account = (
-            request.user.socialaccount_set.filter(provider='fxa').first()
+            SocialAccount.objects.get(id=1)
         )
 
         if not fxa_account:

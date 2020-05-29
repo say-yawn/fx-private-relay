@@ -16,8 +16,9 @@ class PrivateRelayConfig(AppConfig):
             '%s/jwks' %
             settings.SOCIALACCOUNT_PROVIDERS['fxa']['OAUTH_ENDPOINT']
         )
-        resp_json = resp.json()
-        self.fxa_verifying_keys = resp_json['keys']
+        # import ipdb; ipdb.set_trace()
+        # resp_json = resp.json()
+        # self.fxa_verifying_keys = resp_json['keys']
 
         from allauth.socialaccount.signals import pre_social_login
         from .signals import invitations_only

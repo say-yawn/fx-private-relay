@@ -1,12 +1,10 @@
 {% extends "base.html" %}
 
-{% load socialaccount %}
 {% load static %}
 {% load relay_tags %}
 
 {% block content %}
 
-{% get_social_accounts request.user as accounts %}
 
 <main id="profile-main" class="container bg-light dashboard-container {% if relay_addresses|length == 0 %} env-bg {% endif %} container" data-api-token="{{ user.profile_set.first.api_token }}">
   <div class="main-list flx jst-cntr">
